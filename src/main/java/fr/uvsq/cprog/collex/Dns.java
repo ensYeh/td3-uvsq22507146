@@ -29,4 +29,19 @@ public class Dns {
         }
     }
 
+    //getItem par nom
+    public DnsItem getItem(NomMachine nom) {
+        AdresseIP ip = nomToIp.get(nom);
+        if(ip == null) return null;
+        return new DnsItem(nom, ip);
+    }
+
+    //getItem par ip
+    public DnsItem getItem(AdresseIP ip) {
+        NomMachine nom = ipToNom.get(ip);
+        if(nom == null) return null;
+        return new DnsItem(nom, ip);
+    }
+    
+
 }
