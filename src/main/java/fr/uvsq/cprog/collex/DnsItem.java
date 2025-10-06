@@ -8,4 +8,12 @@ public class DnsItem {
         this.nomMachine = nomMachine;
         this.adresseIP = adresseIP;
     }
+
+    public NomMachine getNomMachine() {
+        return nomMachine;
+    }
+
+    public AdresseIP getAdresseIP() {
+        return adresseIP;
+    }
 }
