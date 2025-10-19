@@ -14,9 +14,11 @@ public class DnsTUI {
         }
 
         if(input.startsWith("add")){
-            String[] parts = input.substring(4).split(" ");
+            String[] parts = input.substring(4).trim().split(" ");
             if(parts.length == 2){
-                return new CommandeAjouter(parts[0], parts[1]);
+                String ip = parts[0];
+                String nom = parts[1];
+                return new CommandeAjouter(nom, ip);
             }else{
                 return new CommandeErreur("Format attendu : add.nom_qualifie_domaine adr.es.se.ip");
             }

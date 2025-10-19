@@ -62,8 +62,8 @@ public class Dns {
         ipToNom.put(ip, nom);
 
         List<String> lignes = new ArrayList<>();
-        for(Map.Entry<AdresseIP, NomMachine> entry: ipToNom.entrySet()) {
-            lignes.add(entry.getValue().getNomDomaine());
+        for (Map.Entry<NomMachine, AdresseIP> entry : nomToIp.entrySet()) {
+            lignes.add(entry.getKey().getNomMachine() + "." + entry.getKey().getNomDomaine() + " " + entry.getValue().toString());
         }
         Files.write(Paths.get(dnsFilePath), lignes);
     }
