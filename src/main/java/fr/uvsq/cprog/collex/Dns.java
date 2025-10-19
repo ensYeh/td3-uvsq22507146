@@ -8,7 +8,7 @@ import java.util.*;
 public class Dns {
     private Map<NomMachine, AdresseIP> nomToIp = new HashMap<>();
     private Map<AdresseIP, NomMachine> ipToNom = new HashMap<>();
-    private String dnsFilePath;
+    String dnsFilePath;
 
     public Dns() throws IOException {
         Properties prop = new Properties();
