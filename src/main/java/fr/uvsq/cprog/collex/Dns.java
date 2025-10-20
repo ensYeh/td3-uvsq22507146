@@ -53,6 +53,23 @@ public class Dns {
         return resultats;
     }
 
+    public List<DnsItem> listerParDomaine(String domaine) {
+        List<DnsItem> resultats = new ArrayList<>();
+        domaine = domaine.trim().toLowerCase();
+
+        for (Map.Entry<NomMachine, AdresseIP> entry : nomToIp.entrySet()) {
+            NomMachine nom = entry.getKey();
+            String fqdn = nom.getNomMachine() + "." + nom.getNomDomaine();
+            if (fqdn.toLowerCase().contains(domaine)) {
+                resultats.add(new DnsItem(nom, entry.getValue()));
+            }
+        }
+        return resultats;
+    }
+
+
+
+
     public void addItem(AdresseIP ip, NomMachine nom) throws IOException{
         if(nomToIp.containsKey(nom) || ipToNom.containsKey(ip)) {
             throw new IllegalArgumentException("Nom ou Ip déjà présent dans la base");

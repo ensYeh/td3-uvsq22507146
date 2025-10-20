@@ -27,6 +27,16 @@ public class DnsTUI {
             return new CommandeRechercherParIp(input);
         }
 
+        if (input.startsWith("ls -a ")) {
+            String domaine = input.substring(6).trim();
+            if (!domaine.isEmpty()) {
+                return new CommandeListerParDomaine(domaine);
+            } else {
+                return new CommandeErreur("Format attendu : ls -a domaine");
+            }
+        }
+
+
         if (input.contains(".")) {
             return new CommandeRechercherParNom(input);
         }

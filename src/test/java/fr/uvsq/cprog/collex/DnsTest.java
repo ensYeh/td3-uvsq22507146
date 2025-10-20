@@ -17,7 +17,7 @@ public class DnsTest {
 
         Properties props = new Properties();
         props.setProperty("dns.file", tempFile.toString());
-        try (OutputStream out = Files.newOutputStream(Paths.get("src/test/resources/config.properties"))) {
+        try (OutputStream out = Files.newOutputStream(Paths.get("src/test/resources/dns-test.txt"))) {
             props.store(out, null);
         }
 
